@@ -1,2 +1,2 @@
-# TutoSymfony_gfk
+# TutoSymfony
 Cours de symfony avec quelque explications
