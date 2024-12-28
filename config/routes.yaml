@@ -1,0 +1,17 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+# home:
+#     path: /
+#     controller: App\Controller\HomeController::index
+
+# product.index:
+#     path: /products
+#     controller: App\Controller\ProductController::index
+
+# product.show:
+#     path: /products/{slug}-{id}
+#     controller: App\Controller\ProductController::show
