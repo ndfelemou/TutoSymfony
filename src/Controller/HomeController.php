@@ -13,6 +13,8 @@ class HomeController extends AbstractController
     function index(Request $request): Response {
         // return new Response("Bonjour $_GET[name] !");
         // dd($request->query->get('name'));
-        return new Response("Bonjour " . $request->query->get('name', 'Nyankoye Daniel FELEMOU') ." !");
+        // return new Response("Bonjour " . $request->query->get('name', 'Nyankoye Daniel FELEMOU') ." !");
+
+        return $this->render('home/index.html.twig', ['name' => "TutoSymfony"]);
     }
 }
