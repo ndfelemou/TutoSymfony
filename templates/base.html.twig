@@ -24,7 +24,7 @@
 	{# Barre de navigation #}
 	<nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">TutoSymfony</a>
+			<a class="navbar-brand" href="{{ url('home') }}">TutoSymfony</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
@@ -48,7 +48,8 @@
 		</div>
 	</nav>
 
-	<div class="container my-4"> {% block body %}{% endblock %}
+	<div class="container my-4"> 
+		{% block body %}{% endblock %}
 	</div>
 </body>
 

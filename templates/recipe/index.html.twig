@@ -5,59 +5,37 @@ endblock %} #}
 {% block
 body %}
 	<div class="row">
-		Le Lorem Ipsum est simplement du faux texte employé dans la composition et la
-		mise en page avant impression. Le Lorem Ipsum est le faux texte standard de
-		l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla
-		ensemble des morceaux de texte pour réaliser un livre spécimen de polices de
-		texte.
+		<p class="text-justify">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la
+			mise en page avant impression. Le Lorem Ipsum est le faux texte standard de
+			l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla
+			ensemble des morceaux de texte pour réaliser un livre spécimen de polices de
+			texte.
+		</p>
 	</div>
-	<div class="row mt-2">
-		<div class="col-md-3 mt-2">
-			<div class="card">
-				<div class="card-body">
-					<h4 class="text-muted">Pate Bolognaise</h4>
-					Ici le contenu de la Pate Bolognaise
-				</div>
-				<div class="card-footer">
-					<a href="{{ path('recipe.show', { id: 21, slug: 'pate-bolognaise' }) }}" class="btn btn-outline-primary rounded-0">Lire plus</a>
-				</div>
-			</div>
-		</div>
 
-		<div class="col-md-3 mt-2">
-			<div class="card">
-				<div class="card-body">
-					<h4 class="text-muted">Poullait Braiser</h4>
-					Ici le contenu de la Poullait Braiser
-				</div>
-				<div class="card-footer">
-					<a href="{{ path('recipe.show', { id: 25, slug: 'poullait-braiser' }) }}" class="btn btn-outline-primary rounded-0">Lire plus</a>
-				</div>
-			</div>
-		</div>
+	{% if recipes|length != 0 %}
+		<div class="row mt-2">
 
-		<div class="col-md-3 mt-2">
-			<div class="card">
-				<div class="card-body">
-					<h4 class="text-muted">Feuille de manioc</h4>
-					Ici le contenu de la Feuille de manioc
+			{% for recipe in recipes %}
+				<div class="col-md-3 mt-2">
+					<div class="card">
+						<div class="card-body">
+							<h4 class="text-muted">{{ recipe.getTitle() }}</h4> 
+							<p class="fst-italic">Date de création : le 27/01/2025</p>
+							<hr class="my-4 border-primary">
+							<p style="text-align: justify;">{{ recipe.getContent() }}</p>
+						</div>
+						<div class="card-footer">
+							<a href="{{ path('recipe.show', { id: recipe.getId(), slug: recipe.getSlug() }) }}" class="btn btn-outline-primary rounded-0">Lire plus</a>
+						</div>
+					</div>
 				</div>
-				<div class="card-footer">
-					<a href="{{ path('recipe.show', { id: 28, slug: 'feuille-de-manioc' }) }}" class="btn btn-outline-primary rounded-0">Lire plus</a>
+			{% else %}
+				<div class="alert alert-warning" role="alert">
+					Aucune recette n'a été trouvée.
 				</div>
-			</div>
-		</div>
+			{% endfor %}
 
-		<div class="col-md-3 mt-2">
-			<div class="card">
-				<div class="card-body">
-					<h4 class="text-muted">Soupe au poisson</h4>
-					Ici le contenu de la Soupe au poisson
-				</div>
-				<div class="card-footer">
-					<a href="{{ path('recipe.show', { id: 30, slug: 'soupe-au-poisson' }) }}" class="btn btn-outline-primary rounded-0">Lire plus</a>
-				</div>
-			</div>
 		</div>
-	</div>
+	{% endif %}
 {% endblock %}

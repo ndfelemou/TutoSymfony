@@ -1,8 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{%block title "Recette : " ~ slug %}
+{%block title "Recette : " ~ recipe.getTitle() %}
 
 {% block body %}
-	<strong>Titre</strong> : {{ slug | upper }} <br>
-	<strong>ID</strong> : {{ id }}
+
+<div class="row">
+	<div class="card col-md-12">
+		<div class="card-body">
+			<h3 class="text-muted">{{ recipe.title }}</h3> <hr class="bg-primary">
+		<p>{{ recipe.content | nl2br }}</p>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
